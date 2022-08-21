@@ -8,4 +8,5 @@ def video_streaming_input(event, context):
         "input": event,
     }
 
+    print("hello")
     return {"statusCode": 200, "body": json.dumps(body)}
