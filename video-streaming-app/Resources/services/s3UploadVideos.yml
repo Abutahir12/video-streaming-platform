@@ -1,0 +1,14 @@
+Type: "AWS::S3::Bucket"
+Properties:
+  AccessControl: PublicRead
+  BucketName: ${self:custom.VideoUploadBucket}
+  CorsConfiguration:
+    CorsRules:
+      - AllowedHeaders:
+          - '*'
+        AllowedMethods:
+          - GET
+          - POST
+        AllowedOrigins:
+          - '*'
+DeletionPolicy: Retain
