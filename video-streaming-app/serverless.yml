@@ -6,6 +6,17 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: python3.8
+  stage: ${opt:stage, "dev"}
+
+custom: 
+  ENV_STAGE_MAPPING:
+    dev: "dev"
+    prod: "prod"
+  VideoUploadBucket: vsp-video-upload-${self:custom.ENV_STAGE_MAPPING.${self:provider.stage}}
+
+resources:
+  Resources:
+    S3Bucket: ${file(./Resources/services/s3UploadVideos.yml)}
 
 functions:
   video_streaming_input: ${file(./Resources/lambda/video_streaming_input.yml)}
