@@ -4,7 +4,7 @@ import json
 def video_streaming_input(event, context):
     event = {"Greetings": "Hello World!"}
     body = {
-        "message": "Go Serverless v3.0! Your function executed successfully!",
+        "message": "Your function executed successfully!",
         "input": event,
     }
 
